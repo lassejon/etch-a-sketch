@@ -1,31 +1,3 @@
-const slider = document.getElementById("select-rows");
-const board = document.createElement('div');
-const resetBtn = document.getElementById("reset")
-const colorWell = document.getElementById("colorWell");
-let color = colorWell.value;
-
-colorWell.addEventListener('input', () => {
-    draw(colorWell.value, 'mouseenter')
-});
-
-resetBtn.addEventListener('click', () => {
-    squares = document.getElementsByClassName('square')
-    for(const square of squares) {
-        square.style.backgroundColor = "white";
-    }
-});
-
-slider.addEventListener('change', () => {
-    clear();
-    removeGrid();
-    createGrid();
-    draw(colorWell.value, 'mouseenter')
-});
-
-drawBoard();
-createGrid();
-draw(color, 'mouseenter')
-
 function drawBoard() {
     board.classList.add('board');
     document.body.appendChild(board)

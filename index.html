@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <div class="selectors">
+        <div class="slider">
+            <p>Rows</p>
+            <input id="select-rows" type="range" min="8" max="128" value="64" step=8
+                    oninput="this.nextElementSibling.value = this.value">
+            <output>64</output>
+        </div>
+        <input type="color" value="#000000" id="colorWell">
+        <button id="reset">Clear screen</button>
+    </div>
 </body>
 </html>
