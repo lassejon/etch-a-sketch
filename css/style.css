@@ -6,8 +6,9 @@ html, body {
 body {
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: start;
     justify-content: center;
+    gap: 8vw;
     align-items: center;
 }
 
@@ -17,19 +18,17 @@ output {
 
 .selectors {
     display: flex;
-    width: 640px;
+    flex-direction: column;
+    height: 480px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-bottom: 100px;
 }
 
 .slider {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.size{
-    width: 640px;
 }
 
 .board {

@@ -3,9 +3,12 @@ const board = document.createElement('div');
 const resetBtn = document.getElementById("reset")
 const colorWell = document.getElementById("colorWell");
 let color = colorWell.value;
+let drawEvent = "mousedown"
+
+start(color)
 
 colorWell.addEventListener('input', () => {
-    draw(colorWell.value, 'mouseenter')
+    draw(colorWell.value, drawEvent)
 });
 
 resetBtn.addEventListener('click', () => {
@@ -19,12 +22,14 @@ slider.addEventListener('change', () => {
     clear();
     removeGrid();
     createGrid();
-    draw(colorWell.value, 'mouseenter')
+    draw(colorWell.value, drawEvent)
 });
 
-drawBoard();
-createGrid();
-draw(color, 'mouseenter')
+function start(color) {
+    drawBoard();
+    createGrid();
+    draw(color, drawEvent)
+}
 
 function drawBoard() {
     board.classList.add('board');
@@ -58,7 +63,11 @@ function createGrid() {
 function draw(color, event) {
     squares = document.getElementsByClassName('square')
     for(const square of squares) {
-        square.addEventListener(event, () => square.style.backgroundColor = color);
+        square.addEventListener('mousedown', () => toggle())
+        square.addEventListener('mousemove', () => {
+            square.style.backgroundColor = color;
+            toggle();
+        });
     }
 }
 
