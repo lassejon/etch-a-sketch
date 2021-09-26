@@ -50,4 +50,5 @@ output {
 
 .square {
     flex: 1 1 auto;
+    border: 1px solid rgb(242, 242, 242);
 }

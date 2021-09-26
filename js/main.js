@@ -3,12 +3,11 @@ const board = document.createElement('div');
 const resetBtn = document.getElementById("reset")
 const colorWell = document.getElementById("colorWell");
 let color = colorWell.value;
-let drawEvent = "mousedown"
 
 start(color)
 
 colorWell.addEventListener('input', () => {
-    draw(colorWell.value, drawEvent)
+    color = colorWell.value;
 });
 
 resetBtn.addEventListener('click', () => {
@@ -22,13 +21,13 @@ slider.addEventListener('change', () => {
     clear();
     removeGrid();
     createGrid();
-    draw(colorWell.value, drawEvent)
+    draw()
 });
 
 function start(color) {
     drawBoard();
     createGrid();
-    draw(color, drawEvent)
+    draw()
 }
 
 function drawBoard() {
@@ -58,21 +57,39 @@ function createGrid() {
         }
         board.appendChild(row);
     }
+
 }
 
-function draw(color, event) {
-    squares = document.getElementsByClassName('square')
+function fillBox(e) {
+    this.style.backgroundColor = color;
+}
+
+function startDrawing() {
+    const squares = document.getElementsByClassName('square')
     for(const square of squares) {
-        square.addEventListener('mousedown', () => toggle())
-        square.addEventListener('mousemove', () => {
-            square.style.backgroundColor = color;
-            toggle();
-        });
+        square.addEventListener('mouseover', fillBox)
+    }
+}
+
+function stopDrawing() {
+    console.log("stop drawing");
+    const squares = document.getElementsByClassName('square')
+    for(const square of squares) {
+        square.removeEventListener('mouseover', fillBox)
+    }
+}
+
+
+function draw() {
+    const squares = document.getElementsByClassName('square')
+    for(const square of squares) {
+        square.addEventListener('mousedown', startDrawing);
+        square.addEventListener('mouseup', stopDrawing);
     }
 }
 
 function clear() {
-    squares = document.getElementsByClassName('row')
+    const squares = document.getElementsByClassName('row')
     for(const square of squares) {
         square.style.backgroundColor = "white";
     }
