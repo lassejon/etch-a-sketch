@@ -22,7 +22,7 @@ p {
   margin: 0px;
 }
 
-.container {
+.instructions {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
