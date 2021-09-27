@@ -4,12 +4,21 @@ html, body {
 }
 
 body {
+    font-family: ar;
     margin: 0;
     display: flex;
-    flex-direction: start;
+    flex-direction: row;
     justify-content: center;
     gap: 8vw;
     align-items: center;
+    background-color: gainsboro;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 output {
@@ -22,13 +31,63 @@ output {
     height: 480px;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 100px;
+
+    width: 150px;
 }
+button {
+    width: 150px;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-dark);
+    border-radius: 5px;
+  }
+  
+  button.active {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+  }
+  
+  button,
+  #colorWell {
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  button:hover,
+  #colorWell:hover {
+    transform: scale(1.05);
+  }
+  
+  #colorWell:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+  }
+  
+  #colorWell {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-color: gainsboro;
+  }
+  
+  #colorWell::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  #colorWell::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 
 .slider {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 150px;
+}
+
+#select-rows {
+    width: 150px;
 }
 
 .board {
@@ -51,4 +110,5 @@ output {
 .square {
     flex: 1 1 auto;
     border: 1px solid rgb(242, 242, 242);
+    background-color: white;
 }

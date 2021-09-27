@@ -9,14 +9,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Etch-a-Sketch</h1>
+        <p>Press and hold left mousebottom to draw. Release to stop.</p>
+    </div>
     <div class="selectors">
+        <input type="color" value="#000000" id="colorWell">
         <div class="slider">
             <p>Rows</p>
-            <input id="select-rows" type="range" min="8" max="96" value="64" step=8
+            <input id="select-rows" type="range" min="8" max="96" value="48" step=8
                     oninput="this.nextElementSibling.value = this.value">
-            <output>64</output>
+            <output>48</output>
         </div>
-        <input type="color" value="#000000" id="colorWell">
         <button id="reset">Clear screen</button>
     </div>
 </body>
